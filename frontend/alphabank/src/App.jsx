@@ -8,6 +8,8 @@ function App() {
     <>
       <GlobalStyle />
       <Header />
+      <Main />
+      <Footer />
     </>
   );
 }
