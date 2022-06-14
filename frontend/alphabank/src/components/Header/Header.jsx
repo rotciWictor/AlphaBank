@@ -7,7 +7,7 @@ function Header() {
   return (
     <S.header>
       <S.logo src={logo} />
-      <HeaderButton title="Login" />
+      <HeaderButton title="Cadastre-se" />
 
     </S.header>
   );
