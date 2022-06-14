@@ -9,6 +9,7 @@ export const registerMain = Styled.main`
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
+    padding:0px 5%;
     
 
 `;

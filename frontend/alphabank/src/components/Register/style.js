@@ -14,3 +14,24 @@ export const register = Styled.main`
     justify-content: space-evenly; 
 
 `;
+
+export const input = Styled.input`
+
+    all:unset;
+    border-bottom: 1px solid green;
+    width: 70%;
+`;
+
+export const button = Styled.input`
+
+    all:unset;
+    background-color: #4A9C90;
+    border-radius: 0.7em;
+    color: black;
+    height: 8vh;
+    width: 70%;
+    text-align: center;
+    font-size:1em;
+    cursor: pointer;
+
+`;
