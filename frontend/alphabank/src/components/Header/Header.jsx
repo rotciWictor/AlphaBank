@@ -1,16 +1,14 @@
 import React from "react";
 import * as S from "./style";
-import { AiOutlineUserAdd } from "react-icons/ai";
 import logo from "../../images/logo.svg"
+import HeaderButton from "../headerButton/headerButton";
 
 function Header() {
   return (
     <S.header>
       <S.logo src={logo} />
-      <S.div>
-        <S.register>Cadastre-se</S.register>
-        <AiOutlineUserAdd size={38} />
-      </S.div>
+      <HeaderButton title="Login" />
+
     </S.header>
   );
 }

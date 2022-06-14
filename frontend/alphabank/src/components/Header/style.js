@@ -11,23 +11,8 @@ export const header = Styled.header`
     color: white;
 `;
 
-export const register = Styled.h2`
-
-    color: white;
-    border-bottom: 1px solid white;
-
-`;
-
 export const logo = Styled.img`
 
     height: 14vh;
 
 `;
-
-export const div = Styled.div`
-    display: flex;
-    align-items: center;
-    width:12%;
-    justify-content: space-around;
-
-`
