@@ -1,13 +1,15 @@
 import React from "react";
 import * as S from "./style";
+import logo from "../../images/logo.svg";
+import Login from "../Login/Login";
+
 
 function Main() {
   return (
-  
-  <S.main>
-      <h1>Aparece porra!!!</h1>
-  </S.main>
-  
+    <S.main>
+        <S.logo src={logo} />
+        <Login />
+    </S.main>
   );
 }
 
