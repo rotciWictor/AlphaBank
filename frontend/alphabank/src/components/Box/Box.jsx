@@ -3,7 +3,7 @@ import * as S from "./style";
 
 function OperationBox(props) {
   return (
-    <S.OperationBox>
+    <S.OperationBox onClick={props.onClick}>
         {props.title}
         {props.children}
     </S.OperationBox>

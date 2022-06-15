@@ -4,57 +4,59 @@ import Navbar from '../Navbar/Navbar.jsx';
 import NavButton from "../NavButton/NavButton";
 import { BiWindowClose } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
-import { RiLuggageDepositFill } from "react-icons/ri";
+import { RiLuggageDepositFill, RiNavigationLine } from "react-icons/ri";
 import { BsCashStack } from "react-icons/bs";
 import { ImKey } from "react-icons/im";
 import { BsCreditCardFill } from "react-icons/bs";
-import { AiFillEye } from "react-icons/ai";
-import Operations from '../Operations/Operations';
-import Box from '../Box/Box.jsx'
-import MessageBox from '../MessageBox/MessageBox';
 import MiscellaneousItem from '../miscellaneousItem/miscellaneousItem.jsx';
+import { Context } from "../../context/Context.jsx";
+import { useContext } from "react";
 
 
-
-function Main2() {
+function Main2(props) {
+  let { navigate } = useContext(Context)
   const iconsSize = 40
   return (
     <S.div>
       <Navbar>
-        <NavButton title="Visualizar Perfil">
+        <NavButton
+          title="Visualizar Perfil"
+          onClick={() => navigate("/profile")}
+        >
           <CgProfile size={iconsSize} />
         </NavButton>
-        <NavButton title="Depósito em Conta">
+        <NavButton
+          title="Depósito em Conta"
+          onClick={() => navigate("/accountdeposit")}
+        >
           <RiLuggageDepositFill size={iconsSize} />
         </NavButton>
-        <NavButton title="Transferências">
+        <NavButton
+          title="Transferências"
+          onClick={() => navigate("/transfers")}
+        >
           <BsCashStack size={iconsSize} />
         </NavButton>
-        <NavButton title="Alterar Senha">
+        <NavButton
+          title="Alterar Senha"
+          onClick={() => navigate("/changepassword")}
+        >
           <ImKey size={iconsSize} />
         </NavButton>
         <NavButton title="Cartão Virtual">
-          <BsCreditCardFill size={iconsSize} />
+          <BsCreditCardFill
+            size={iconsSize}
+            onClick={() => navigate("/virtualcard")}
+          />
         </NavButton>
-        <NavButton title="Encerrar Conta">
+        <NavButton title="Encerrar Conta" onClick={() => navigate("/closeaccount")}>
           <BiWindowClose size={iconsSize} />
         </NavButton>
       </Navbar>
-      <Operations>
-        <MessageBox message="Vamo Gastar Porra!!!"/>
-        <Box title="Visualizar Saldo" >
-          <div className='div'>
-            <h2>R$ 1.000,00</h2>
-            <AiFillEye size={48}/>
-          </div>
-        </Box>
-        <Box title="Depósito em Conta" />
-        <Box title="Cartão Virtual" />
-        <Box title="Transferência" />
-      </Operations>
+      {props.children}
       <Navbar>
-        <MiscellaneousItem title="Perguntas Frequentes"/>
-        <MiscellaneousItem title="Propaganda"/>
+        <MiscellaneousItem title="Perguntas Frequentes" />
+        <MiscellaneousItem title="Propaganda" />
       </Navbar>
     </S.div>
   );

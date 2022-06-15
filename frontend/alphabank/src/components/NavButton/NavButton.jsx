@@ -3,7 +3,7 @@ import * as S from "./style";
 
 function NavButton(props) {
 return (
-  <S.navButton>
+  <S.navButton onClick={props.onClick}>
     {props.children}
     {props.title}
   </S.navButton>

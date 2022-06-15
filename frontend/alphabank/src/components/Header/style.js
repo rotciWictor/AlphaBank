@@ -15,5 +15,6 @@ export const header = Styled.header`
 export const logo = Styled.img`
 
     height: 14vh;
+    cursor: pointer;
 
 `;
