@@ -16,33 +16,13 @@ export const GlobalStyle = createGlobalStyle`
     .papagaio{
       width:46%;
     }
-    .search{
-      padding-left:9px;
-      width:30%;
-      height:5vh;
-      border-radius: 0.5em;
-    }
 
-    .help,.profile{
-      width:fit-content;
+    .div{
       display: flex;
-      justify-content: center;
-      align-items: center;
-      gap:5px;
-      
-    }
-
-    .exit{
-      all:unset;
-      background-color: white;
-      color:#2C7364;
-      width:5%;
-      height:5vh;
-      text-align: center;
-      border-radius:0.5em;
-      font-weight:bold;
-
-
+      justify-self: center;
+      align-self: center;
+      gap: 20px;
+      width: 100%
     }
 `;
 

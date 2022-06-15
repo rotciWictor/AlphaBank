@@ -4,25 +4,26 @@ import { Context } from "../../context/Context.jsx";
 import { useContext } from "react";
 import {BiHelpCircle} from "react-icons/bi"
 import { CgProfile } from "react-icons/cg";
+import Search from "../../components/Search/Search";
+import OptionsHeader from "../../components/OptionsHeader/OptionsHeader";
+import SimpleButton from "../../components/SimpleButton/SimpleButton"
+
 
 function Home() {
   let { navigate } = useContext(Context);
   return (
     <>
       <Header>
-        <input className="search" type="text" placeholder="Digite a busca" />
-        <div className="help">
+        <Search placeholder="Digite sua Busca"/>
+        <OptionsHeader title="Atendimento">
           <BiHelpCircle size={38} />
-          <h2>Atendimento</h2>
-        </div>
-        <div className="profile">
+        </OptionsHeader>
+        <OptionsHeader title="Nome do cliente">
           <CgProfile size={38} />
-          <h2>Nome Cliente</h2>
-        </div>
-        <input className="exit" type="button" value="Sair" />
+        </OptionsHeader>
+        <SimpleButton value="Sair" onClick={()=> navigate("/")}/>
       </Header>
       <Main2>
-        
       </Main2>
     </>
   );

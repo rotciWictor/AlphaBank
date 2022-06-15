@@ -8,6 +8,7 @@ import { RiLuggageDepositFill } from "react-icons/ri";
 import { BsCashStack } from "react-icons/bs";
 import { ImKey } from "react-icons/im";
 import { BsCreditCardFill } from "react-icons/bs";
+import { AiFillEye } from "react-icons/ai";
 import Operations from '../Operations/Operations';
 import Box from '../Box/Box.jsx'
 import MessageBox from '../MessageBox/MessageBox';
@@ -40,15 +41,20 @@ function Main2() {
         </NavButton>
       </Navbar>
       <Operations>
-        <MessageBox />
-        <Box title="Visualizar Saldo" />
+        <MessageBox message="Vamo Gastar Porra!!!"/>
+        <Box title="Visualizar Saldo" >
+          <div className='div'>
+            <h2>R$ 1.000,00</h2>
+            <AiFillEye size={48}/>
+          </div>
+        </Box>
         <Box title="Depósito em Conta" />
         <Box title="Cartão Virtual" />
         <Box title="Transferência" />
       </Operations>
       <Navbar>
-        <MiscellaneousItem></MiscellaneousItem>
-        <MiscellaneousItem />
+        <MiscellaneousItem title="Perguntas Frequentes"/>
+        <MiscellaneousItem title="Propaganda"/>
       </Navbar>
     </S.div>
   );

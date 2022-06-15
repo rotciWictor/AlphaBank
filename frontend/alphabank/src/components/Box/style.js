@@ -5,7 +5,7 @@ export const OperationBox = Styled.div`
     display:flex;
     justify-content: center;
     align-items: flex-start;
-    font-weight: bold;
+    font-size:1.75em;
     background-color: white;
     height: 35vh;
     width: 45%;
