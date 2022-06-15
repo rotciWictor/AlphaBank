@@ -4,7 +4,7 @@ import * as S from "./style";
 function NavButton(props) {
 return (
   <S.navButton>
-    <h2>{props.children}</h2>
+    {props.children}
     {props.title}
   </S.navButton>
 );

@@ -8,6 +8,7 @@ justify-content: center;
 align-items: center;
 height: 16%;
 width: 100%;
+gap: 0.5em;
 text-align: center;
 cursor:pointer;
 color: #2C7364
