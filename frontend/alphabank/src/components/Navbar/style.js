@@ -5,8 +5,7 @@ export const navBar = Styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: center;
+justify-content: space-between;
 height: 100%;
 width: 15%;
-border:1px red solid
 `;

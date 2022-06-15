@@ -11,7 +11,7 @@ import { BsCreditCardFill } from "react-icons/bs";
 
 
 function Main2() {
-  const iconsSize = 10
+  const iconsSize = 40
   return (
     <S.div>
       <Navbar>

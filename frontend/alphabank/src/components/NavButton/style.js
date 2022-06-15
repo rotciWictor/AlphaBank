@@ -8,7 +8,8 @@ justify-content: center;
 align-items: center;
 height: 16%;
 width: 100%;
-border:1px green solid;
 text-align: center;
+cursor:pointer;
+color: #2C7364
 
 `;
