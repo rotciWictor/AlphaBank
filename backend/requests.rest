@@ -1,0 +1,68 @@
+GET http://localhost:4000/allclients
+
+###
+GET http://localhost:4000/client
+Content-Type: application/json
+
+{
+    "cpf":"12345678901"
+}
+
+###
+POST http://localhost:4000/client/create
+Content-Type: application/json
+
+{
+    "name": "Zézinho",
+    "cpf": "12345678901",
+    "birthday":"1999/12/12",
+    "password":"123456789"
+}
+
+###
+POST http://localhost:4000/client/update
+Content-Type: application/json
+
+{
+    "name": "Victor",
+    "cpf": "12345678900",
+    "birthday":"12/12/1999",
+    "password":"007"
+}
+
+
+###
+POST http://localhost:4000/deposit
+Content-Type: application/json
+
+{
+    "cpf": "12345678900",
+    "depositAmount": 1000.00
+}
+
+###
+POST http://localhost:4000/balance
+Content-Type: application/json
+
+{
+    "cpf": "12345678901"
+}
+
+###
+POST http://localhost:4000/expense
+Content-Type: application/json
+
+{
+    "cpf": "12345678900",
+    "amount":1000
+}
+
+###
+POST http://localhost:4000/maketransaction
+Content-Type: application/json
+
+{
+    "cpf": "12345678901",
+    "cpfDest": "12345678900",
+    "amount":1000
+}
