@@ -9,10 +9,22 @@ function Login() {
       <h1>Faça seu login</h1>
       <S.input type="text" placeholder="CPF" />
       <S.input type="text" placeholder="SENHA" />
-      <S.button type="button" value="CONTINUAR" />
+      <S.button
+        type="button"
+        value="CONTINUAR"
+        onClick={() => {
+          navigate("/Logged");
+        }}
+      />
       <S.div>
         <S.links type="button" value="Esqueci minha senha >" />
-        <S.links type="button" value="Ainda não sou cliente >" onClick={() => {navigate("/Register");}}/>
+        <S.links
+          type="button"
+          value="Ainda não sou cliente >"
+          onClick={() => {
+            navigate("/Register");
+          }}
+        />
       </S.div>
     </S.login>
   );
