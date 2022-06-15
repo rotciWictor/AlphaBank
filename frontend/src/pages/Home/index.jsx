@@ -25,7 +25,7 @@ function Home() {
         </HeaderButton>
       </Header>
       <Main image={image} imageSize="80vh">
-        <img src={logo} />
+        <img src={logo} alt="logo"/>
         <Login />
       </Main>
       <Footer />

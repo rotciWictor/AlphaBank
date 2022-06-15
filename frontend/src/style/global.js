@@ -1,6 +1,4 @@
-import Styled, { createGlobalStyle } from "styled-components";
-import { AiOutlineSearch } from "react-icons/ai";
-import lupa from "../images/lupa.svg";
+import { createGlobalStyle } from "styled-components";
 
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');

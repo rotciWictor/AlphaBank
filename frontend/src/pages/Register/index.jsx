@@ -1,9 +1,7 @@
 import Main from "../../components/Main/Main.jsx"
 import Header from "../../components/Header/Header.jsx";
-import Footer from "../../components/Footer/Footer.jsx";
 import image from "../../images/registerPageImage.png"
 import RegisterForm from "../../components/RegisterForm/RegisterForm.jsx";
-import { useNavigate } from "react-router-dom";
 import HeaderButton from "../../components/headerButton/headerButton.jsx";
 import { BiLogInCircle } from "react-icons/bi";
 import { Context } from "../../context/Context.jsx";

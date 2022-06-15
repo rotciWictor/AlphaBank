@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar.jsx';
 import NavButton from "../NavButton/NavButton";
 import { BiWindowClose } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
-import { RiLuggageDepositFill, RiNavigationLine } from "react-icons/ri";
+import { RiLuggageDepositFill } from "react-icons/ri";
 import { BsCashStack } from "react-icons/bs";
 import { ImKey } from "react-icons/im";
 import { BsCreditCardFill } from "react-icons/bs";
