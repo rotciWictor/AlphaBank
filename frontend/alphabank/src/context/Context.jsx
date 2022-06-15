@@ -1,17 +1,18 @@
-import React, { createContext, useState } from "react";
+import { createContext} from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Context = createContext({});
 
-export const TaskProvider = (props) => {
+export const Provider = (props) => {
+
+    const navigate = useNavigate()
    
-    return(
-        <Context.Provider
+    return <Context.Provider
             value={{
-                
+                navigate
             }}
         >
-
             {props.children}
         </Context.Provider>
-    )
+    
 }

@@ -6,9 +6,11 @@ import RegisterForm from "../../components/RegisterForm/RegisterForm.jsx";
 import { useNavigate } from "react-router-dom";
 import HeaderButton from "../../components/headerButton/headerButton.jsx";
 import { BiLogInCircle } from "react-icons/bi";
+import { Context } from "../../context/Context.jsx";
+import { useContext } from "react";
 
 function Register() {
-  const navigate = useNavigate();
+  let { navigate } = useContext(Context);
   return (
     <>
       <Header>
