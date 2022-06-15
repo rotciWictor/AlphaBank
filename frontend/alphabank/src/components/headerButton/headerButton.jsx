@@ -1,12 +1,12 @@
 import React from 'react';
 import * as S from "./style";
-import { BiLogInCircle } from "react-icons/bi";
+
 
 function headerButton(props) {
   return (
-    <S.headerButton>
+    <S.headerButton onClick={props.onClick}>
       <S.title>{props.title}</S.title>
-      <BiLogInCircle size={38} />
+      {props.children}
     </S.headerButton>
   );
 }

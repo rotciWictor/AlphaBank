@@ -1,14 +1,13 @@
-import React from "react";
+import React, { Children } from "react";
 import * as S from "./style";
 import logo from "../../images/logo.svg";
 import Login from "../Login/Login";
 
 
-function Main() {
+function Main(props) {
   return (
-    <S.main>
-        <S.logo src={logo} />
-        <Login />
+    <S.main image={props.image} imageSize={props.imageSize}>
+        {props.children}
     </S.main>
   );
 }

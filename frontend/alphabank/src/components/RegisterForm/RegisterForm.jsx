@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style";
 
-function Register() {
+function RegisterForm() {
   return (
     <S.register>
       <h1>Vamos Começar?</h1>
@@ -15,4 +15,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default RegisterForm;

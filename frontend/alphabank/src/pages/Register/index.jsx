@@ -1,15 +1,30 @@
-import Main from "./components/registerMain/registerMain";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-import { GlobalStyle } from "./style/global";
+import Main from "../../components/Main/Main.jsx"
+import Header from "../../components/Header/Header.jsx";
+import Footer from "../../components/Footer/Footer.jsx";
+import image from "../../images/registerPageImage.png"
+import RegisterForm from "../../components/RegisterForm/RegisterForm.jsx";
+import { useNavigate } from "react-router-dom";
+import HeaderButton from "../../components/headerButton/headerButton.jsx";
+import { BiLogInCircle } from "react-icons/bi";
 
 function Register() {
+  const navigate = useNavigate();
   return (
     <>
-      <GlobalStyle />
-      <Header />
-      <Main />
-      <Footer />
+      <Header>
+        <HeaderButton
+          title="Entrar"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
+          <BiLogInCircle size={38}/>
+        </HeaderButton>
+      </Header>
+      <Main image={image} imageSize="90vh">
+        <RegisterForm />
+        <div className="papagaio"></div>
+      </Main>
     </>
   );
 }

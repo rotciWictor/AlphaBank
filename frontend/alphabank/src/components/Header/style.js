@@ -9,6 +9,7 @@ export const header = Styled.header`
     width: 100%;
     background-color: #4A9C90;
     color: white;
+    padding-right:2%;
 `;
 
 export const logo = Styled.img`
