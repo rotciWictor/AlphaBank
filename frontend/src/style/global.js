@@ -14,13 +14,5 @@ export const GlobalStyle = createGlobalStyle`
     .papagaio{
       width:46%;
     }
-
-    .div{
-      display: flex;
-      justify-self: center;
-      align-self: center;
-      gap: 20px;
-      width: 100%
-    }
 `;
 
