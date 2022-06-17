@@ -15,7 +15,7 @@ import Input from '../../components/Input/Input';
 import ConfirmButton from '../../components/ConfirmButton/ConfirmButton';
 
 function Extract() {
-    let { navigate } = useContext(Context);
+    let { navigate, amount, setAmount, deposit } = useContext(Context);
   return (
     <>
       <Header onClick={() => navigate("/Logged")}>
@@ -35,8 +35,8 @@ function Extract() {
         <Operations>
           <MessageBox message="Depósito" />
           <OperationsView title="Depósito em Conta">
-            <Input label="Valor do Depósito"></Input>
-            <ConfirmButton value="Confirmar" onClick="" />
+            <Input label="Valor do Depósito" value={amount} onInput={(e)=>setAmount(parseFloat(e.target.value))}></Input>
+            <ConfirmButton value="Confirmar" onClick={()=>deposit()} />
           </OperationsView>
         </Operations>
       </Main2>

@@ -36,16 +36,16 @@ POST http://localhost:4000/deposit
 Content-Type: application/json
 
 {
-    "cpf": "12345678901",
+    "cpf": "12345678911",
     "depositAmount": 20.00
 }
 
 ###
-POST http://localhost:4000/balance
+POST http://localhost:4000/balance2
 Content-Type: application/json
 
 {
-    "cpf": "12345678901"
+    "cpf": "12345678900"
 }
 
 ###
@@ -54,7 +54,7 @@ Content-Type: application/json
 
 {
     "cpf": "12345678900",
-    "amount":20
+    "amount":1010
 }
 
 ###
@@ -65,4 +65,13 @@ Content-Type: application/json
     "cpf": "12345678901",
     "cpfDest": "12345678900",
     "amount":10
+}
+
+
+###
+POST http://localhost:4000/getpassword
+Content-Type: application/json
+
+{
+    "cpf": "12345678900"
 }

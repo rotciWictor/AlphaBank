@@ -1,12 +1,12 @@
 import { connection } from '../config/database.js'
 
 export const addReceivable = async (req, res) => {
-    const {depositAmount, cpf} = req.body
+    const {amount, cpf} = req.body
 
     try {
         let balance = await connection.query("SELECT balance_available, account.id FROM account, clients WHERE clients.account_id = account.id AND clients.cpf = $1",[cpf]);
 
-        let newBalance = depositAmount + parseFloat(balance.rows[0].balance_available);
+        let newBalance = amount + parseFloat(balance.rows[0].balance_available);
 
         await connection.query(`
         UPDATE account 

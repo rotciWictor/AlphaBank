@@ -11,6 +11,7 @@ export const Provider = (props) => {
     const [birthday, setBirthday] = useState("");
     const [password, setPassword] = useState("");
     const [secondPassword, setSecondPassword] = useState("");
+    const [changedPassword, setChangedPassword] = useState("");
     const [amount, setAmount] = useState("");
     const [cpfDest, setCpfDest] = useState("");
 
@@ -118,10 +119,55 @@ export const Provider = (props) => {
             console.log(`Amount:${amount}, CPFDEST: ${cpfDest}`);
             setAmount("");
             setCpfDest("");
+            console.log("cpf: ",cpf)
+            navigate("/Logged")
         } catch (error) {
             console.log.error(error.message);
         }
     };
+
+    const deposit = async () => {
+        try {
+            await fetch("http://localhost:4000/deposit",{
+            method:"POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                cpf: cpf,
+                amount: amount,
+            }),
+        })
+        navigate("/Logged");
+        setAmount("");
+        } catch (error) {
+            console.error(error.message)
+        }
+    }
+
+    const changePassword = async() => {
+        try {
+            let data = await fetch("http://localhost:4000/getpassword",{
+                method: "GET",
+                headers: {
+                "Content-Type": "application/json",
+                cpf:cpf
+            }
+            });
+            let passwordDB = await data.json();
+            console.log(passwordDB);
+
+
+            // await fetch("http://localhost:4000/changepassword", {
+            //     method: "POST",
+            //     headers: { "Content-Type": "application/json" },
+            //     body: JSON.stringify({
+            //         password:password,
+            //         cpf:cpf
+            //     }),
+            // })
+        } catch (error) {
+            
+        }
+    }
 
     const navigate = useNavigate();
 
@@ -151,6 +197,10 @@ export const Provider = (props) => {
                 cpfDest,
                 setCpfDest,
                 login,
+                deposit,
+                changedPassword,
+                setChangedPassword,
+                changePassword
             }}
         >
             {props.children}

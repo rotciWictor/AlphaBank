@@ -27,6 +27,16 @@ export const getBalance = async (req, res) => {
         res.status(401).send(error.message);
     }
 }
+export const getBalance2 = async (req, res) => {
+    const { cpf } = req.body
+    try {
+        let balance = await connection.query("SELECT balance_available FROM account, clients WHERE clients.account_id = account.id AND clients.cpf = $1",[cpf]);
+
+        res.status(200).send(balance.rows[0].balance_available)
+    } catch (error) {
+        res.status(401).send(error.message);
+    }
+}
 
 export const makeTransaction = async (req,res) => {
     const {cpf, cpfDest, amount} = req.body
@@ -62,4 +72,20 @@ export const makeTransaction = async (req,res) => {
     } catch (error) {
         res.status(401).send(error.message);
     }
+}
+
+export const getPassword = async (req, res) => {
+    const {cpf} = req.headers
+    try {
+        let passwordDB = await connection.query(`
+            SELECT password FROM clients WHERE cpf = $1
+        `,[cpf])
+        res.status(200).send(passwordDB.rows[0].password);
+    } catch (error) {        
+        res.status(401).send(error.message);
+    }
+}
+
+export const changePassword = async (req, res) => {
+
 }
