@@ -15,9 +15,10 @@ import Box from "../../components/Box/Box";
 import MessageBox from "../../components/MessageBox/MessageBox";
 
 function Home() {
-  let { navigate, getBalance, balance, transaction, setTransaction } = useContext(Context);
+  let { navigate, getBalance, balance, transaction, nomeCliente, getName } = useContext(Context);
 
   useEffect(()=>{getBalance()},[transaction])
+  useEffect(()=>{getName()},[])
 
   return (
     <>
@@ -27,7 +28,7 @@ function Home() {
           <BiHelpCircle size={38} />
         </OptionsHeader>
         <OptionsHeader
-          title="Nome do cliente"
+          title={nomeCliente}
           onClick={() => navigate("/profile")}
         >
           <CgProfile size={38} />

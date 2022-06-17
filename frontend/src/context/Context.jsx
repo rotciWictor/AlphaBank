@@ -14,6 +14,7 @@ export const Provider = (props) => {
     const [changedPassword, setChangedPassword] = useState("");
     const [amount, setAmount] = useState("");
     const [cpfDest, setCpfDest] = useState("");
+    const [nomeCliente, setNomeCliente] = useState("");
 
     function login() {
         fetch(`http://localhost:4000/login`, {
@@ -36,6 +37,7 @@ export const Provider = (props) => {
                         console.log("aquiiii", data);
                         localStorage.setItem("user", JSON.stringify(data));
                         navigate("/Logged");
+                        setPassword("");
                     });
                 } else {
                     response.json().then(function (data) {
@@ -72,8 +74,9 @@ export const Provider = (props) => {
                     console.log(
                         "Verificar problema. STATUS:" + response.status
                     );
-                    response.text().then(function (data) {
-                        console.log(`${data}`);
+                    response.json().then(function (data) {
+                        console.log(`${data}`);                        
+                        navigate("/Logged");
                     });
                 } else {
                     response.json().then(function (data) {
@@ -87,6 +90,23 @@ export const Provider = (props) => {
             });
     }
 
+    const getName = async () => {
+        try {
+            let data = await fetch("http://localhost:4000/getName", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    cpf: cpf,
+                },
+            });
+            let resp = await data.json();
+            console.log(resp);
+            setNomeCliente(resp.name);
+        } catch (error) {
+            console.error(error.message);
+        }
+    }
+
     const getBalance = async () => {
         try {
             let data = await fetch("http://localhost:4000/balance", {
@@ -98,7 +118,7 @@ export const Provider = (props) => {
             });
             let resp = await data.json();
             console.log(resp);
-            setBalance(resp);
+            setBalance(resp.balance_available);
         } catch (error) {
             console.error(error.message);
         }
@@ -144,28 +164,48 @@ export const Provider = (props) => {
     }
 
     const changePassword = async() => {
+
+        const passwordFormat = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,20}$/;
+        
+        
         try {
             let data = await fetch("http://localhost:4000/getpassword",{
                 method: "GET",
                 headers: {
-                "Content-Type": "application/json",
-                cpf:cpf
-            }
+                    "Content-Type": "application/json",
+                    cpf:cpf
+                }
             });
             let passwordDB = await data.json();
-            console.log(passwordDB);
-
-
-            // await fetch("http://localhost:4000/changepassword", {
-            //     method: "POST",
-            //     headers: { "Content-Type": "application/json" },
-            //     body: JSON.stringify({
-            //         password:password,
-            //         cpf:cpf
-            //     }),
-            // })
-        } catch (error) {
+            console.log(passwordDB.password);
             
+            if (passwordDB.password === password) {
+                if(secondPassword === changedPassword){
+                    let testPassword = passwordFormat.test(changedPassword);
+                    let testSecondPassword = passwordFormat.test(secondPassword);
+
+                    if(testSecondPassword === true && testPassword === true){
+                        await fetch("http://localhost:4000/changepassword", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                password:changedPassword,
+                                cpf:cpf
+                            }),
+                        })
+                        navigate("/Logged");
+                        setPassword("");
+                        setSecondPassword("");
+                        setChangedPassword("");
+                    }
+                } else {
+                    console.log("Senhas diferentes!")
+                }             
+            } else {
+                console.log("Senha incorreta");
+            }
+        } catch (error) {
+            console.error(error.message)
         }
     }
 
@@ -200,7 +240,10 @@ export const Provider = (props) => {
                 deposit,
                 changedPassword,
                 setChangedPassword,
-                changePassword
+                changePassword,
+                getName,
+                nomeCliente,
+                setNomeCliente
             }}
         >
             {props.children}
