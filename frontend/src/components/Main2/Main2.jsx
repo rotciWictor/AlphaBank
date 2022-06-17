@@ -81,10 +81,14 @@ function Main2(props) {
       {props.children}
       <Navbar>
         <MiscellaneousItem className="title" title="">
-          <p > Se eu tiver a conta do Alphabank vou ter o cartão de crédito aprovado?</p>
-          <p > Não tem nenhuma tarifa?</p>
+          <p>
+            Existe algum risco em colocar meu dinheiro na conta do Alphabank?
+          </p>
+          <p> Não tem nenhuma tarifa?</p>
           <p> Quem emite o Cartão Alphabank?</p>
-          <p> Se eu tiver a conta do Nubank vou ter o cartão de crédito aprovado?</p>
+          <p>
+            Se eu tiver a conta do Nubank vou ter o cartão de crédito aprovado?
+          </p>
         </MiscellaneousItem>
         <MiscellaneousItem className="title" title="">
           <Advertising>

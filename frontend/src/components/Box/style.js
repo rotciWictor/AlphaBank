@@ -19,4 +19,10 @@ export const OperationBox = Styled.div`
         width: 100%;
         text-align:center;
     }
+
+
+    &:hover {
+            color:green;
+    }
+
 `;
