@@ -5,10 +5,9 @@ import * as S from "./style";
 function miscellaneousItem(props) {
   return (
     <S.miscellaneousItem>
-        {props.title}
-        {props.children}
+      <h3>{props.title}</h3>
+      {props.children}
     </S.miscellaneousItem>
-
   );
 }
 

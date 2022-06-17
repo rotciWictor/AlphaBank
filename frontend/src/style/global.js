@@ -26,10 +26,10 @@ export const GlobalStyle = createGlobalStyle`
       text-align:center;
     }
 
-  figure {
-  display: inline-block;
-  position: relative;
-}
+    figure {
+    display: inline-block;
+    position: relative;
+    }
 
 .name-card {
   position: absolute;
@@ -57,6 +57,9 @@ export const GlobalStyle = createGlobalStyle`
   color: white;
   text-shadow: 0px 0px 5px black;
 }
+
+
+
 `;
 
 

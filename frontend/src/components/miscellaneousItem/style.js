@@ -2,6 +2,11 @@ import Styled from "styled-components";
 
 export const miscellaneousItem = Styled.div`
 
+    display flex;
+    flex-direction: column;
+    justify-content:space-around;
+    gap:5rem;
+    align-items:center;
     background-color: white;
     height: 40vh;
     width: 80%;
@@ -12,4 +17,14 @@ export const miscellaneousItem = Styled.div`
     font-weight: bold;
     display: flex;
     justify-content: center;
+    overflow: scroll;
+
+    p{
+        color:#4A9C90;
+        font-size:1rem;
+        &:hover {
+            color:green;
+        }
+    }
 `;
+
