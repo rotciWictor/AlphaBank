@@ -17,12 +17,15 @@ function Extract() {
     let { navigate } = useContext(Context);
   return (
     <>
-      <Header>
+      <Header onClick={() => navigate("/Logged")}>
         <Search placeholder="Digite sua Busca" />
         <OptionsHeader title="Atendimento">
           <BiHelpCircle size={38} />
         </OptionsHeader>
-        <OptionsHeader title="Nome do cliente">
+        <OptionsHeader
+          title="Nome do cliente"
+          onClick={() => navigate("/profile")}
+        >
           <CgProfile size={38} />
         </OptionsHeader>
         <SimpleButton value="Sair" onClick={() => navigate("/")} />

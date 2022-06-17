@@ -8,19 +8,16 @@ function Transaction() {
   return (
     <S.transaction>
       <div>
-        <label>CPF</label>
-        <Input placeholder="123.456.789-00" />
+        <Input label="CPF" placeholder="123.456.789-00" />
         <h3>ou</h3>
-        <label>ID</label>
-        <Input placeholder="010" />
+        <Input label="ID" placeholder="010" />
         <h3>ou</h3>
-        <label>Conta</label>
-        <Input placeholder="03" />
+        <Input label="Conta" placeholder="03" />
       </div>
       <div>
-        <label>Valor da Transferência</label>
-        <Input placeholder="$ 1.000" />
-        <ConfirmButton value="Confirmar" onClick=""/>
+        <label></label>
+        <Input label="Valor da Transferência" placeholder="$ 1.000" />
+        <ConfirmButton value="Confirmar" onClick="" />
       </div>
     </S.transaction>
   );

@@ -8,7 +8,7 @@ function Header(props) {
   let { navigate } = useContext(Context);
   return (
     <S.header>
-      <S.logo src={logo} onClick={()=>navigate("/Logged")}/>
+      <S.logo src={logo} onClick={props.onClick}/>
       {props.children}
 
     </S.header>

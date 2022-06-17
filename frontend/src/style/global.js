@@ -14,5 +14,17 @@ export const GlobalStyle = createGlobalStyle`
     .papagaio{
       width:46%;
     }
+
+    .div{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:10px;
+    }
+
+    .closeaccount{
+      text-align:center;
+    }
 `;
+
 

@@ -7,5 +7,6 @@ export const optionsHeader = Styled.div`
     justify-content: center;
     align-items: center;
     gap:5px;
+    cursor:pointer;
 
 `;

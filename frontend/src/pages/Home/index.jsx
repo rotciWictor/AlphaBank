@@ -14,7 +14,7 @@ function Home() {
   let {navigate} = useContext(Context)
   return (
     <>
-      <Header>
+      <Header onClick={() => navigate("/")}>
         <HeaderButton
           title="Cadastre-se"
           onClick={() => {
@@ -25,7 +25,7 @@ function Home() {
         </HeaderButton>
       </Header>
       <Main image={image} imageSize="80vh">
-        <img src={logo} alt="logo"/>
+        <img src={logo} alt="logo" />
         <Login />
       </Main>
       <Footer />

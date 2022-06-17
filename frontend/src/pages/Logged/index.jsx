@@ -21,38 +21,50 @@ function Home() {
 
   return (
     <>
-      <Header>
+      <Header onClick={() => navigate("/Logged")}>
         <Search placeholder="Digite sua Busca" />
         <OptionsHeader title="Atendimento">
           <BiHelpCircle size={38} />
         </OptionsHeader>
-        <OptionsHeader title="Nome do cliente">
+        <OptionsHeader
+          title="Nome do cliente"
+          onClick={() => navigate("/profile")}
+        >
           <CgProfile size={38} />
         </OptionsHeader>
         <SimpleButton value="Sair" onClick={() => navigate("/")} />
       </Header>
       <Main2>
         <Operations>
-          <MessageBox message="Vamo Gastar Porra!!!" />
+          <MessageBox message="Vamo Gastar!!!" />
           <Box title="Visualizar Saldo" onClick={() => navigate("/Extract")}>
-            <div style={{display:"flex", gap:"10px"}}>
+            <div style={{ display: "flex", gap: "10px" }}>
               <h2>R$ {balance}</h2>
               <AiFillEye size={48} />
             </div>
           </Box>
-          <Box title="Depósito em Conta" onClick={() => navigate("/accountdeposit")}>
+          <Box
+            title="Depósito em Conta"
+            onClick={() => navigate("/accountdeposit")}
+          >
             <div>
-              <h2><GiReceiveMoney size={48} /></h2>
+              <h2>
+                <GiReceiveMoney size={48} />
+              </h2>
             </div>
           </Box>
           <Box title="Cartão Virtual" onClick={() => navigate("/virtualcard")}>
             <div>
-              <h2><FaMoneyCheck size={48} /></h2>
+              <h2>
+                <FaMoneyCheck size={48} />
+              </h2>
             </div>
           </Box>
           <Box title="Transferência" onClick={() => navigate("/transfers")}>
             <div>
-              <h2><GiPayMoney size={48} /></h2>
+              <h2>
+                <GiPayMoney size={48} />
+              </h2>
             </div>
           </Box>
         </Operations>

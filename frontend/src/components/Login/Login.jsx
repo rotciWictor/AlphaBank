@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import * as S from "./style";
 import { Context } from "../../context/Context";
+import * as S from "./style";
 
 function Login() {
   let {navigate} = useContext(Context)

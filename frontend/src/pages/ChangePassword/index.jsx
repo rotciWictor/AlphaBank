@@ -11,26 +11,35 @@ import SimpleButton from "../../components/SimpleButton/SimpleButton";
 import Operations from "../../components/Operations/Operations";
 import MessageBox from "../../components/MessageBox/MessageBox";
 import OperationsView from '../../components/OperationsView/OperationsView';
-
+import Input from '../../components/Input/Input';
+import Button from '../../components/ConfirmButton/ConfirmButton';
 
 function Extract() {
     let { navigate } = useContext(Context);
   return (
     <>
-      <Header>
+      <Header onClick={() => navigate("/Logged")}>
         <Search placeholder="Digite sua Busca" />
         <OptionsHeader title="Atendimento">
           <BiHelpCircle size={38} />
         </OptionsHeader>
-        <OptionsHeader title="Nome do cliente">
+        <OptionsHeader
+          title="Nome do cliente"
+          onClick={() => navigate("/profile")}
+        >
           <CgProfile size={38} />
         </OptionsHeader>
         <SimpleButton value="Sair" onClick={() => navigate("/")} />
       </Header>
       <Main2>
         <Operations>
-          <MessageBox message="Trocar Senha"/>
-          <OperationsView />
+          <MessageBox message="Trocar Senha" />
+          <OperationsView title="Alterar Senha">
+            <Input label="Senha Atual"></Input>
+            <Input label="Nova Senha"></Input>
+            <Input label="Repita a nova senha"></Input>
+            <Button value="Confirmar" onClick="" />
+          </OperationsView>
         </Operations>
       </Main2>
     </>

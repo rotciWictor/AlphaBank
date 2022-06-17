@@ -11,6 +11,11 @@ width: 100%;
 gap: 0.5em;
 text-align: center;
 cursor:pointer;
-color: #2C7364
+color: #2C7364;
+
+
+    &:hover {
+        color:green;
+    }
 
 `;

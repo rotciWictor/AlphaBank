@@ -11,13 +11,13 @@ import SimpleButton from "../../components/SimpleButton/SimpleButton";
 import Operations from "../../components/Operations/Operations";
 import MessageBox from "../../components/MessageBox/MessageBox";
 import OperationsView from '../../components/OperationsView/OperationsView';
-
+import Input from '../../components/Input/Input';
 
 function Extract() {
     let { navigate } = useContext(Context);
   return (
     <>
-      <Header>
+      <Header onClick={() => navigate("/Logged")}>
         <Search placeholder="Digite sua Busca" />
         <OptionsHeader title="Atendimento">
           <BiHelpCircle size={38} />
@@ -29,8 +29,15 @@ function Extract() {
       </Header>
       <Main2>
         <Operations>
-          <MessageBox message="Perfil"/>
-          <OperationsView />
+          <MessageBox message="Perfil" />
+          <OperationsView title="Seu Perfil">
+            <div className="div">
+              <CgProfile size={85} />
+              <h3> Olá Lisa, Mona</h3>
+            </div>
+            <Input label="CPF" />
+            <Input label="ID" />
+          </OperationsView>
         </Operations>
       </Main2>
     </>

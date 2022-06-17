@@ -11,14 +11,14 @@ function Register() {
   let { navigate } = useContext(Context);
   return (
     <>
-      <Header>
+      <Header onClick={() => navigate("/")}>
         <HeaderButton
           title="Entrar"
           onClick={() => {
             navigate("/");
           }}
         >
-          <BiLogInCircle size={38}/>
+          <BiLogInCircle size={38} />
         </HeaderButton>
       </Header>
       <Main image={image} imageSize="90vh">
