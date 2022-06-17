@@ -3,13 +3,10 @@ import * as S from "./style"
 
 function OperationsView(props) {
   return (
-
     <S.operationsView>
-        {props.title}
-        {props.children}
+      <h1>{props.title}</h1>
+      {props.children}
     </S.operationsView>
-
-
   );
 }
 

@@ -14,7 +14,10 @@ export const operationsView = Styled.div`
     box-shadow: 0px 7px 11px 1px rgba(48,48,48,0.42);
     cursor: pointer;
     padding:2%;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
 
+    h1{
+        display: flex;
+        justify-self: flex-start;
 `; 
