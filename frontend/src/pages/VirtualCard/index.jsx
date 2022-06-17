@@ -15,7 +15,14 @@ import Card from '../../images/alphabank-Mastercard-768x500.svg'
 
 
 function Extract() {
-    let { navigate } = useContext(Context);
+    const { navigate } = useContext(Context);
+    const {cardName} = useContext(Context);
+    const { setcardName } = useContext(Context);
+    const { cardNumber } = useContext(Context);
+    const { setcardNumber } = useContext(Context);
+    const { cardValid } = useContext(Context);
+    const { setcardValid } = useContext(Context);
+
   return (
     <>
       <Header onClick={() => navigate("/Logged")}>
