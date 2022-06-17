@@ -12,6 +12,8 @@ export const Provider = (props) => {
     const [birthday, setBirthday] = useState('');
     const [password, setPassword] = useState ('');
     const [secondPassword, setSecondPassword] = useState('');
+    const [amount, setAmount] = useState('');
+    const [cpfDest, setCpfDest] = useState('');
 
     function register() { 
         fetch("http://localhost:4000/client/create", {
@@ -65,6 +67,26 @@ export const Provider = (props) => {
         }
     }
 
+    const transfer = async () => {
+        try {
+            await fetch("http://localhost:4000/maketransaction",{
+                method:"POST",
+                headers:{"Content-Type": "application/json"},
+                body:JSON.stringify({
+                    cpf:"12345678901",
+                    cpfDest:cpfDest,
+                    amount:amount
+                })
+            })
+            setTransaction(!transaction);
+            console.log(`Amount:${amount}, CPFDEST: ${cpfDest}`)
+            setAmount("");
+            setCpfDest("");
+        } catch (error) {
+            console.log.error(error.message)
+        }
+    }
+
     const navigate = useNavigate()
     
     return <Context.Provider
@@ -85,7 +107,12 @@ export const Provider = (props) => {
                 setPassword,
                 secondPassword,
                 setSecondPassword,
-                register
+                register,
+                amount,
+                setAmount,
+                transfer,
+                cpfDest,
+                setCpfDest
             }}
         >
             {props.children}

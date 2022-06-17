@@ -18,7 +18,7 @@ export const deleteAccount = async (req, res) => {
 }
 
 export const getBalance = async (req, res) => {
-    const { cpf } = req.headers
+    const { cpf } = req.body
     try {
         let balance = await connection.query("SELECT balance_available FROM account, clients WHERE clients.account_id = account.id AND clients.cpf = $1",[cpf]);
 

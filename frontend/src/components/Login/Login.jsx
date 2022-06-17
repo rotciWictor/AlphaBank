@@ -3,12 +3,13 @@ import { Context } from "../../context/Context";
 import * as S from "./style";
 
 function Login() {
-  let {navigate} = useContext(Context)
+  const { navigate, cpf, setCpf, password, setPassword } = useContext(Context)
+
   return (
     <S.login>
       <h1>Faça seu login</h1>
-      <S.input type="text" placeholder="CPF" />
-      <S.input type="text" placeholder="SENHA" />
+      <S.input type="text" placeholder="CPF" value={cpf} onInput={(e)=>setCpf(e.target.value)}/>
+      <S.input type="text" placeholder="SENHA" value={password} onInput={(e)=>setPassword(e.target.value)} />
       <S.button
         type="button"
         value="CONTINUAR"

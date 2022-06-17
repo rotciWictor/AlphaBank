@@ -5,7 +5,7 @@ function Input(props) {
   return (
     <S.div>
       <S.label>{props.label}</S.label>
-      <S.input />
+      <S.input value={props.value} onInput={props.onInput}/>
     </S.div>
   );
 }

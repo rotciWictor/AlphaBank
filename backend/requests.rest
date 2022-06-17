@@ -36,8 +36,8 @@ POST http://localhost:4000/deposit
 Content-Type: application/json
 
 {
-    "cpf": "12345678900",
-    "depositAmount": 1000.00
+    "cpf": "12345678901",
+    "depositAmount": 20.00
 }
 
 ###
@@ -54,7 +54,7 @@ Content-Type: application/json
 
 {
     "cpf": "12345678900",
-    "amount":1000
+    "amount":20
 }
 
 ###
@@ -64,5 +64,5 @@ Content-Type: application/json
 {
     "cpf": "12345678901",
     "cpfDest": "12345678900",
-    "amount":1000
+    "amount":10
 }
