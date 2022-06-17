@@ -31,7 +31,7 @@ export const Provider = (props) => {
             })
         })
             .then(function (response) {
-                if (response.status !== 200) { //erro vindo do banco de dados
+                if (response.status !== 200 || response.status !== 201) { //erro vindo do banco de dados
                     console.log("Verificar problema. STATUS:" + response.status);
                     response.text().then(function (data) {
                         console.log(`${data}`);
@@ -74,7 +74,18 @@ export const Provider = (props) => {
                 balance,
                 setBalance,
                 transaction,
-                setTransaction
+                setTransaction,
+                cpf,
+                setCpf,
+                name,
+                setName,
+                birthday,
+                setBirthday,
+                password,
+                setPassword,
+                secondPassword,
+                setSecondPassword,
+                register
             }}
         >
             {props.children}

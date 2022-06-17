@@ -75,3 +75,28 @@ export const updateClient = async (req, res) => {
         res.status(500).send(err.message);
     }
 };
+
+
+export const loginClient = async (req,res) => {        
+        const {email, password} = req.body;        
+        const checkRegex = /^(\s?[^\s,]+@[^\s,]+\.[^\s,]+\s?,)*(\s?[^\s,]+@[^\s,]+\.[^\s,]+)$/;
+        const verify = checkRegex.test(email);
+
+        if(verify === true) {
+            const client = await getClient(); 
+            const users = await client.query('SELECT * FROM public.clients WHERE email=$1 AND password=$2', [email, password]);
+            await client.end();
+            if(users.rows.length === 0) {
+                res.status(400).send("Cliente não cadastrado");
+            } else {
+                console.log(users.rows)
+                const token = await jwt.sign({clientId: users.rows[0].id, clientEmail: users.rows[0].email},tokenPassword);
+                console.log(token)
+                res.cookie("token", token); //como se fosse uma propriedade do objeto passa o nome e o valor
+                res.json({
+                    admin: false,
+                    name: users.rows[0].name
+                });
+            }
+        }
+}
