@@ -9,7 +9,7 @@ function Login() {
     <S.login>
       <h1>Faça seu login</h1>
       <S.input type="text" placeholder="CPF" value={cpf} onInput={(event)=>{setCpf(event.target.value)}}/>
-      <S.input type="text" placeholder="SENHA" value={password} onInput={(event)=>{setPassword(event.target.value)}} />
+      <S.input type="password" placeholder="SENHA" value={password} onInput={(event)=>{setPassword(event.target.value)}} />
       <S.button type="button" value="CONTINUAR" onClick={() => {
         const cpfFormat = /\d{11}/;
         const passwordFormat = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{6,20}$/;

@@ -30,8 +30,8 @@ function RegisterForm() {
       <S.input type="text" placeholder="NOME COMPLETO" value={name} onInput={(event)=>{setName(event.target.value)}} />
       <S.input type="text" placeholder="CPF" value={cpf} onInput={(event)=>{setCpf(event.target.value)}} />
       <S.input type="text" placeholder="DATA DE NASCIMENTO" value={birthday} onInput={(event)=>{setBirthday(event.target.value)}} />
-      <S.input type="text" placeholder="SENHA" value={password} onInput={(event)=>{setPassword(event.target.value)}}/>
-      <S.input type="text" placeholder="CONFIRME SUA SENHA" value={secondPassword} onInput={(event)=>{setSecondPassword(event.target.value)}} />
+      <S.input type="password" placeholder="SENHA" value={password} onInput={(event)=>{setPassword(event.target.value)}}/>
+      <S.input type="password" placeholder="CONFIRME SUA SENHA" value={secondPassword} onInput={(event)=>{setSecondPassword(event.target.value)}} />
       <S.button type="button" value="CONTINUAR" onClick={register} disabled={hasError}/>
     </S.register>
   );
