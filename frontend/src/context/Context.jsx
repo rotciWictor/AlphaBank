@@ -14,6 +14,9 @@ export const Provider = (props) => {
     const [changedPassword, setChangedPassword] = useState("");
     const [amount, setAmount] = useState("");
     const [cpfDest, setCpfDest] = useState("");
+    const [cardNumber, setCardNumber] = useState("");
+    const [cardName, setCardName] = useState("");
+    const [cardvalid, setCardValid] = useState("");
 
     function login() {
         fetch(`http://localhost:4000/login`, {
@@ -200,7 +203,13 @@ export const Provider = (props) => {
                 deposit,
                 changedPassword,
                 setChangedPassword,
-                changePassword
+                changePassword,
+                cardName,
+                setCardName,
+                cardNumber,
+                setCardNumber,
+                cardvalid,
+                setCardValid
             }}
         >
             {props.children}

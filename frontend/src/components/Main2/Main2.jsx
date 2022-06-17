@@ -21,20 +21,19 @@ import { Advertising } from '../Advertising/style';
 function Main2(props) {
 
   const [i, seti] = useState(0);
-  const logos = [Emovere, Reverie, Logossauro];
+  const logos = ["",Logossauro, Reverie, Emovere];
   
   function changeLogo() {
-    if (i === logos.length - 1) {
-      seti(0);
-    } else {
+    if (i >= 2) {
+      seti(++temp);
       let temp = i;
-      temp++;
-      seti(temp);
+    } else {
+      seti(0);
     }
   }
   useEffect(() =>{
     
-    setInterval(changeLogo, 7000);
+    setInterval(changeLogo, 10000);
     
   },[]);
 
