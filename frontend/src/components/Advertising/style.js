@@ -13,29 +13,25 @@ export const Advertising = Styled.div`
         display: flex;
         width: 13rem;
         left: calc(50% - 2rem);
-        opacity: 0;
-        animation: display 5s infinite;
+        opacity: 100;
+        
       }
 
       @keyframes display {
-        0% {
-          transform: translateX(200px);
+         0% {
+          
           opacity: 0;
         }
-        10% {
-          transform: translateX(0);
+        25% {
+          opacity: 0.5;
+        }
+        50% {
           opacity: 1;
         }
-        60% {
-          transform: translateX(0);
-          opacity: 1;
-        }
-        90% {
-          transform: translateX(-200px);
-          opacity: 0;
+        75% {
+          opacity: 0.5;
         }
         100% {
-          transform: translateX(-200px);
           opacity: 0;
         }
       }

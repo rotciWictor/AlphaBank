@@ -17,7 +17,7 @@ export const miscellaneousItem = Styled.div`
     font-weight: bold;
     display: flex;
     justify-content: center;
-    overflow: scroll;
+    overflow: hidden;
     padding: 0.2em 0.8em;
 
     p{

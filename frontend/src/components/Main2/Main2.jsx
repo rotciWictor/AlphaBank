@@ -13,6 +13,7 @@ import { Context } from "../../context/Context.jsx";
 import { useContext } from "react";
 import Emovere from "../../images/logo-emovere.png";
 import Reverie from "../../images/reverie_logo.svg";
+import Logossauro from "../../images/logosauro.png";
 import { useState,useEffect } from 'react';
 import { Advertising } from '../Advertising/style';
 
@@ -20,10 +21,10 @@ import { Advertising } from '../Advertising/style';
 function Main2(props) {
 
   const [i, seti] = useState(0);
-  const logos = [Reverie,Emovere]
+  const logos = [Emovere, Reverie, Logossauro];
   
   function changeLogo() {
-    if (i == logos.length -1) {
+    if (i === logos.length - 1) {
       seti(0);
     } else {
       let temp = i;
@@ -33,7 +34,7 @@ function Main2(props) {
   }
   useEffect(() =>{
     
-    setInterval(changeLogo, 2000);
+    setInterval(changeLogo, 7000);
     
   },[]);
 
@@ -93,7 +94,7 @@ function Main2(props) {
         </MiscellaneousItem>
         <MiscellaneousItem className="title" title="">
           <Advertising>
-            <img src={logos[i]} alt="Reverie" />
+            <img src={logos[i]} alt="" />
           </Advertising>
         </MiscellaneousItem>
       </Navbar>
