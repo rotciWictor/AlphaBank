@@ -11,10 +11,32 @@ import { BsCreditCardFill } from "react-icons/bs";
 import MiscellaneousItem from '../miscellaneousItem/miscellaneousItem.jsx';
 import { Context } from "../../context/Context.jsx";
 import { useContext } from "react";
+import Emovere from "../../images/logo-emovere.png";
+import Reverie from "../../images/reverie_logo.svg";
+import { useState,useEffect } from 'react';
+import { Advertising } from '../Advertising/style';
 
 
 function Main2(props) {
-  let { navigate } = useContext(Context)
+
+  const [i, seti] = useState(0);
+  const logos = [Reverie,Emovere]
+  
+  function changeLogo() {
+    if (i == logos.length -1) {
+      seti(0);
+    } else {
+      let temp = i++
+      seti(temp);
+    }
+  }
+  useEffect(() =>{
+    
+    setInterval(changeLogo, 2000);
+    
+  },[]);
+
+  const { navigate } = useContext(Context)
   const iconsSize = 40
   return (
     <S.div>
@@ -49,14 +71,30 @@ function Main2(props) {
             onClick={() => navigate("/virtualcard")}
           />
         </NavButton>
-        <NavButton title="Encerrar Conta" onClick={() => navigate("/closeaccount")}>
+        <NavButton
+          title="Encerrar Conta"
+          onClick={() => navigate("/closeaccount")}
+        >
           <BiWindowClose size={iconsSize} />
         </NavButton>
       </Navbar>
       {props.children}
       <Navbar>
-        <MiscellaneousItem title="Perguntas Frequentes" />
-        <MiscellaneousItem title="Propaganda" />
+        <MiscellaneousItem className="title" title="">
+          <p>
+            Existe algum risco em colocar meu dinheiro na conta do Alphabank?
+          </p>
+          <p> Não tem nenhuma tarifa?</p>
+          <p> Quem emite o Cartão Alphabank?</p>
+          <p>
+            Se eu tiver a conta do Nubank vou ter o cartão de crédito aprovado?
+          </p>
+        </MiscellaneousItem>
+        <MiscellaneousItem className="title" title="">
+          <Advertising>
+            <img src={logos[i]} alt="Reverie" />
+          </Advertising>
+        </MiscellaneousItem>
       </Navbar>
     </S.div>
   );

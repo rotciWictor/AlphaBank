@@ -15,6 +15,40 @@ export const Provider = (props) => {
     const [amount, setAmount] = useState('');
     const [cpfDest, setCpfDest] = useState('');
 
+    function login() {
+        fetch(`http://localhost:4000/login`, {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': "http://localhost:3000",
+                'Access-Control-Allow-Credentials': true
+            },
+            credentials: "include",
+            body: JSON.stringify({
+                cpf: cpf,
+                password: password
+            })
+            })
+            .then(function (response) {
+            if (response.status >= 200 && response.status < 300) {
+                console.log("Verificar problema. STATUS:" + response.status);
+                response.text().then(function (data) {
+                console.log(data);
+                });
+            } else {
+                    response.json().then(function (data) { //colocar no console que o cliente tá logado
+                        console.log(data); 
+                        localStorage.setItem("user", JSON.stringify(data));
+                        navigate("/Logged");
+                    });
+                }
+            })
+            .catch(function (err) {
+                console.log("Verificar ERRO:" + err);
+            });
+    }
+
     function register() { 
         fetch("http://localhost:4000/client/create", {
             method: "POST",
@@ -22,9 +56,9 @@ export const Provider = (props) => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': "http://localhost:3000",
-                //'Access-Control-Allow-Credentials': true
+                'Access-Control-Allow-Credentials': true
             },
-            //credentials: "include", só se usar cookies
+            credentials: "include", 
             body: JSON.stringify({
                 name: name,
                 cpf: cpf,
@@ -112,7 +146,8 @@ export const Provider = (props) => {
                 setAmount,
                 transfer,
                 cpfDest,
-                setCpfDest
+                setCpfDest,
+                login,
             }}
         >
             {props.children}
