@@ -5,6 +5,7 @@ function OperationsView(props) {
   return (
 
     <S.operationsView>
+        {props.title}
         {props.children}
     </S.operationsView>
 

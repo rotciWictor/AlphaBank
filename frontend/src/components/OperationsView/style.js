@@ -4,8 +4,8 @@ import Styled from "styled-components"
 export const operationsView = Styled.div`
 
     display:flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction:column;
+    align-items: center;
     font-size:1.75em;
     background-color: white;
     height: 70vh;

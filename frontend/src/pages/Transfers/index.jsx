@@ -11,7 +11,7 @@ import SimpleButton from "../../components/SimpleButton/SimpleButton";
 import Operations from "../../components/Operations/Operations";
 import MessageBox from "../../components/MessageBox/MessageBox";
 import OperationsView from '../../components/OperationsView/OperationsView';
-
+import Transaction from '../../components/Transaction/Transaction';
 
 function Extract() {
     let { navigate } = useContext(Context);
@@ -29,8 +29,10 @@ function Extract() {
       </Header>
       <Main2>
         <Operations>
-          <MessageBox message="Transferências"/>
-          <OperationsView />
+          <MessageBox message="Transferências" />
+          <OperationsView title="Transferências">
+            <Transaction />
+          </OperationsView>
         </Operations>
       </Main2>
     </>

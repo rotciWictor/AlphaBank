@@ -18,7 +18,7 @@ export const login = Styled.main`
 export const input = Styled.input`
 
     all:unset;
-    border-bottom: 1px solid green;
+    border-bottom: 1px solid #4A9C90;
     width: 70%;
 `;
 
