@@ -22,7 +22,7 @@ export const getBalance = async (req, res) => {
     try {
         let balance = await connection.query("SELECT balance_available FROM account, clients WHERE clients.account_id = account.id AND clients.cpf = $1",[cpf]);
 
-        res.status(200).send(balance.rows[0].balance_available)
+        res.status(200).send(balance.rows[0])
     } catch (error) {
         res.status(401).send(error.message);
     }
@@ -80,12 +80,27 @@ export const getPassword = async (req, res) => {
         let passwordDB = await connection.query(`
             SELECT password FROM clients WHERE cpf = $1
         `,[cpf])
-        res.status(200).send(passwordDB.rows[0].password);
+        res.status(200).send(passwordDB.rows[0]);
     } catch (error) {        
         res.status(401).send(error.message);
     }
 }
 
 export const changePassword = async (req, res) => {
+    const {cpf, password} = req.body
 
+    try {
+        await connection.query(`
+            UPDATE 
+                clients
+            SET
+                password = $1
+            WHERE
+                cpf = $2
+        `,[password, cpf])
+
+        res.sendStatus(201)
+    } catch (error) {
+        res.status(401).send(error.message)
+    }
 }

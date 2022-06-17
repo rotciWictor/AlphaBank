@@ -15,7 +15,7 @@ import Input from '../../components/Input/Input';
 import Button from '../../components/ConfirmButton/ConfirmButton';
 
 function Extract() {
-    let { navigate, password, setPassword, secondPassword, setSecondPassword, changedPassword, setchangedPassword, changePassword } = useContext(Context);
+    let { navigate, password, setPassword, secondPassword, setSecondPassword, changedPassword, setChangedPassword, changePassword } = useContext(Context);
   return (
     <>
       <Header onClick={() => navigate("/Logged")}>
@@ -35,9 +35,9 @@ function Extract() {
         <Operations>
           <MessageBox message="Trocar Senha" />
           <OperationsView title="Alterar Senha">
-            <Input label="Senha Atual" value={password} onInput={(e)=>setPassword()}></Input>
+            <Input label="Senha Atual" value={password} onInput={(e)=>setPassword(e.target.value)}></Input>
             <Input label="Nova Senha" value={secondPassword} onInput={(e)=>setSecondPassword(e.target.value)}></Input>
-            <Input label="Repita a nova senha" value={changedPassword} onInput={(e)=>setchangedPassword(e.target.value)}></Input>
+            <Input label="Repita a nova senha" value={changedPassword} onInput={(e)=>setChangedPassword(e.target.value)}></Input>
             <Button value="Confirmar" onClick={()=> changePassword()} />
           </OperationsView>
         </Operations>

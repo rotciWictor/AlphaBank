@@ -103,3 +103,14 @@ export const loginClient = async (req,res) => {
         }
     }
 };
+
+export const getName = async(req,res) => {
+    const { cpf } = req.headers
+    try {
+        let name = await connection.query("SELECT name FROM clients WHERE cpf = $1",[cpf]);
+
+        res.status(200).send(name.rows[0])
+    } catch (error) {
+        res.status(401).send(error.message);
+    }
+}
