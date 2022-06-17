@@ -14,7 +14,7 @@ const clientRoute = Router();
 clientRoute.post("/client/create", checkIfClientExists, addClient);
 clientRoute.get("/allclients", getClients);
 clientRoute.get("/client", getClient);
-clientRoute.post("/login", validationJWT, loginClient);
+clientRoute.post("/login", loginClient);
 clientRoute.post("/client/update", checkClient, updateClient);
 
 export default clientRoute;

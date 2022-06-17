@@ -4,6 +4,7 @@ import { Context } from "../../context/Context";
 
 function Login() {
   const { navigate, cpf, password, setCpf, setPassword, login} = useContext(Context)
+
   return (
     <S.login>
       <h1>Faça seu login</h1>

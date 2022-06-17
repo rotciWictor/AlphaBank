@@ -1,4 +1,6 @@
 import { connection } from "../config/database.js";
+import jwt from "jsonwebtoken"
+const tokenPassword = process.env.TOKEN_PASSWORD;
 
 export const addClient = async (req, res) => {
     const { name, cpf, birthday, password } = req.body;
@@ -77,26 +79,27 @@ export const updateClient = async (req, res) => {
 };
 
 
-export const loginClient = async (req,res) => {        
-        const {email, password} = req.body;        
-        const checkRegex = /^(\s?[^\s,]+@[^\s,]+\.[^\s,]+\s?,)*(\s?[^\s,]+@[^\s,]+\.[^\s,]+)$/;
-        const verify = checkRegex.test(email);
-
-        if(verify === true) {
-            const client = await getClient(); 
-            const users = await client.query('SELECT * FROM public.clients WHERE email=$1 AND password=$2', [email, password]);
-            await client.end();
+export const loginClient = async (req,res) => {
+    const {cpf, password} = req.body;
+    const checkRegex = /\d{11}/;
+    const verify = checkRegex.test(cpf);
+    if(verify === true) {
+        try {
+            let users = await connection.query(
+                'SELECT * FROM clients WHERE cpf=$1 AND password=$2', [cpf, password]
+            );
             if(users.rows.length === 0) {
                 res.status(400).send("Cliente não cadastrado");
             } else {
                 console.log(users.rows)
-                const token = await jwt.sign({clientId: users.rows[0].id, clientEmail: users.rows[0].email},tokenPassword);
+                const token = await jwt.sign({clientId: users.rows[0].id, clientCPF: users.rows[0].cpf},tokenPassword);
                 console.log(token)
                 res.cookie("token", token); //como se fosse uma propriedade do objeto passa o nome e o valor
-                res.json({
-                    admin: false,
-                    name: users.rows[0].name
-                });
+                res.json({clientId: users.rows[0].id, clientCPF: users.rows[0].cpf});
             }
+        } catch (err) {
+            console.log("errooooou")
+            res.status(500).send(err.message);
         }
-}
+    }
+};

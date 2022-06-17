@@ -4,7 +4,7 @@ import { checkBalance } from "../middlewares/expenses.middleware.js";
 
 const accountRoute = Router();
 
-accountRoute.post("/balance", getBalance);
+accountRoute.get("/balance", getBalance);
 accountRoute.post("/maketransaction", checkBalance, makeTransaction )
 
 export default accountRoute;

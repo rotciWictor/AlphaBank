@@ -26,7 +26,8 @@ function Main2(props) {
     if (i == logos.length -1) {
       seti(0);
     } else {
-      let temp = i++
+      let temp = i;
+      temp++;
       seti(temp);
     }
   }
