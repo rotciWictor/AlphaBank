@@ -11,6 +11,7 @@ import SimpleButton from "../../components/SimpleButton/SimpleButton";
 import Operations from "../../components/Operations/Operations";
 import MessageBox from "../../components/MessageBox/MessageBox";
 import OperationsView from '../../components/OperationsView/OperationsView';
+import Card from '../../images/alphabank-Mastercard-768x500.svg'
 
 
 function Extract() {
@@ -33,7 +34,10 @@ function Extract() {
       <Main2>
         <Operations>
           <MessageBox message="Cartão Virtual" />
-          <OperationsView title="Cartão Virtual" />
+          <OperationsView title="Cartão Virtual" >
+            <img src={Card} alt="Cartão" />
+            
+          </OperationsView>
         </Operations>
       </Main2>
     </>
