@@ -25,6 +25,38 @@ export const GlobalStyle = createGlobalStyle`
     .closeaccount{
       text-align:center;
     }
+
+  figure {
+  display: inline-block;
+  position: relative;
+}
+
+.name-card {
+  position: absolute;
+  right: 14rem;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+  bottom: 10rem;
+}
+
+.number-card {
+  position: absolute;
+  bottom: 5rem;
+  right: 20rem;
+  font-size: 2rem;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+}
+
+.valid-thru{
+  position: absolute;
+  bottom: 8rem;
+  right: 40rem;
+  font-size: 0.6rem;
+  color: white;
+  text-shadow: 0px 0px 5px black;
+}
 `;
 
 

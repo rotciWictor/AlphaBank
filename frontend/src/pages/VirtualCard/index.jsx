@@ -34,9 +34,20 @@ function Extract() {
       <Main2>
         <Operations>
           <MessageBox message="Cartão Virtual" />
-          <OperationsView title="Cartão Virtual" >
-            <img src={Card} alt="Cartão" />
-            
+          <OperationsView title="Cartão Virtual">
+            <figure>
+              <img src={Card} alt="Cartão" />
+              <figcaption className="name-card">
+                Manu Divertida e Brincalhona
+              </figcaption>
+              <div className="valid-thru">
+                <figcaption>valid-thru</figcaption>
+                <figcaption>12/29</figcaption>
+              </div>
+              <figcaption className="number-card">
+                0000 0000 00000 0000
+              </figcaption>
+            </figure>
           </OperationsView>
         </Operations>
       </Main2>
