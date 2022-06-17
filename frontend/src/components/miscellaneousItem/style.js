@@ -5,7 +5,7 @@ export const miscellaneousItem = Styled.div`
     display flex;
     flex-direction: column;
     justify-content:space-around;
-    gap:5rem;
+    gap:3rem;
     align-items:center;
     background-color: white;
     height: 40vh;
@@ -18,6 +18,7 @@ export const miscellaneousItem = Styled.div`
     display: flex;
     justify-content: center;
     overflow: scroll;
+    padding: 0.2em 0.8em;
 
     p{
         color:#4A9C90;
