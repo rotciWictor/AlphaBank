@@ -7,6 +7,46 @@ export const Provider = (props) => {
     
     const [balance, setBalance] = useState();
     const [transaction, setTransaction] = useState(false);
+    const [cpf, setCpf] = useState('');
+    const [name, setName] = useState('');
+    const [birthday, setBirthday] = useState('');
+    const [password, setPassword] = useState ('');
+    const [secondPassword, setSecondPassword] = useState('');
+
+    function register() { 
+        fetch("http://localhost:4000/client/create", {
+            method: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': "http://localhost:3000",
+                //'Access-Control-Allow-Credentials': true
+            },
+            //credentials: "include", só se usar cookies
+            body: JSON.stringify({
+                name: name,
+                cpf: cpf,
+                birthday: birthday,
+                password: password
+            })
+        })
+            .then(function (response) {
+                if (response.status !== 200) { //erro vindo do banco de dados
+                    console.log("Verificar problema. STATUS:" + response.status);
+                    response.text().then(function (data) {
+                        console.log(`${data}`);
+                        });
+                    }
+                else {
+                    response.json().then(function (data) { //cliente registrado
+                            console.log(data);
+                    });
+                }
+            })
+            .catch(function (err) {
+                console.log("Verificar ERRO:" + err);
+            });
+        }
 
     const getBalance = async() => {
         try {
