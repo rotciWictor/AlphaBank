@@ -15,7 +15,6 @@ function Transaction() {
         <Input label="Conta" placeholder="03" />
       </div>
       <div>
-        <label></label>
         <Input label="Valor da Transferência" placeholder="$ 1.000" />
         <ConfirmButton value="Confirmar" onClick="" />
       </div>

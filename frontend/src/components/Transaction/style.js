@@ -15,7 +15,7 @@ export const transaction = Styled.div`
         justify-content:space-evenly;
         align-items:center;
         height: 80%;
-        width: 75%;
+        width: 90%;
         //border: 1px solid red
     }
 
